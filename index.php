@@ -49,9 +49,6 @@
             <!-- YOUR CONTENT GOES HERE -->
             <div id="content">
 
-              
-
-
                     <!-- ********** THIS CAN BE VIEWED BY FANS ONLY ********** -->
                     <?php if ($userIsFan) { ?>
 
