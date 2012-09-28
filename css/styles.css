@@ -1,0 +1,16 @@
+/* ==|== primary styles =====================================================
+   Author:
+   ========================================================================== */
+body, html {
+  /* Overflowing content is hidden to avoid scrollbars */
+  overflow: hidden; }
+
+a img, a:link img, a:visited img, a:hover img, a:active img {
+  /* To prevent blue borders on linked images in IE, set it to 0 */
+  border: 0; }
+
+#wrapper {
+  /* Center content vertically */
+  margin: 0 auto;
+  /* The current facebook tab width is 810px */
+  max-width: 810px; }

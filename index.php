@@ -36,17 +36,17 @@
 	
     <link rel="stylesheet" href="css/style.css">
    </head>
-   <body>
+   <body onLoad="">
    	<!-- Wrapper that encloses the entire content -->
    	<div id="wrapper">
     <!-- YOUR CONTENT GOES HERE -->
     	<div id="main">
 		<!-- ********** THIS CAN BE VIEWED BY FANS ONLY ********** -->
 		<?php if ($userIsFan) { ?>
-			<p>User is a fan</p>
+			<p style="height:1200px;background:blue;">User is a fan</p>
 		<!-- ********** THIS CAN BE VIEWED BY FANS ONLY ********** -->
 		<?php } else { ?>
-			<p>User is not a fan</p>
+			<p style="height:1200px;background:blue;">User is not a fan</p>
 		<?php } ?>
 		</div><!-- end #main -->
    	</div><!-- end #wrapper -->
@@ -71,7 +71,15 @@
 		// Auto grows panel when app is higher than 800px.
      	// In the app settings, height needs to be set to height 800px fixed for this to work
 		//FB.Canvas.setSize({ width: 810, height: 1417 });
-		//FB.Canvas.setAutoGrow();                
+		//FB.Canvas.setAutoGrow();
+		setSizeOnce();
+		function setSizeOnce() {
+		FB.Canvas.setSize({ width: 810, height: 147 });	
+		}
+		function autoResize() {
+			
+			FB.Canvas.setAutoGrow();
+		}                
 	}; // end window.fbAsyncInit
 	
 	// Load the SDK Asynchronously
@@ -81,9 +89,7 @@
         js.src = "//connect.facebook.net/en_US/all.js";
         d.getElementsByTagName('head')[0].appendChild(js);
     } (document));        
-	function resize() {
-		FB.Canvas.setAutoGrow();
-	}
+	
    </script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/lib/jquery-1.8.1.min.js"><\/script>')</script>
