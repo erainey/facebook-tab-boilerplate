@@ -15,10 +15,6 @@
     // get signed request
     $signedRequest = $facebook->getSignedRequest();
     $userIsFan = isset($signedRequest['page']['liked']) && $signedRequest['page']['liked'];
-
-    // language detection, check if user has locale set to German
-    $language_DE = ($signedRequest['user']['locale'] == 'de_DE');
-
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -28,13 +24,21 @@
 <html>
 
     <head>
-
-        <!-- Title of Facebook Tab -->
-	    <title>Facebook Tab Title</title>
-
-        <!-- SET character set and chrome frame for IE6 -->
+		<!-- SET character set and chrome frame for IE6 -->
 	    <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta property="og:title" content="">
+		  <meta property="og:type" content="">
+		  <meta property="og:url" content=">">
+		  <meta property="og:image" content="">
+		  <meta property="og:description" content="">
+        <!-- Title of Facebook Tab -->
+	    <title>Facebook Tab Title</title>
+		<meta name="description" content="">
+		  <meta name="author" content="">
+		  <meta name="viewport" content="width=device-width">
+
+        
 
         <!-- include stylesheet (taken from HTML5 boilerplate) -->
         <link rel="stylesheet" href="css/style.css">
@@ -63,6 +67,7 @@
 
             </div>
 
+
         </div>
 
         <!-- FB Root serves as anchor for the FB javascript SDK -->
@@ -83,11 +88,18 @@
                     xfbml   : true
 
                 });
+				// redirect to app/tab URL if user views outside Facebook
+				  // useful for enabling open graph data
+				  var isInIframe = (window.location != window.parent.location) ? true : false;
+				  if ( !isInIframe && location.host.indexOf('localhost') == -1 ) {
+				    // location.href = appURL;
+				  }
 
                 // Auto grows panel when app is higher than 800px.
                 // In the app settings, height needs to be set to height 800px fixed for this to work
 
-                FB.Canvas.setSize({ width: 810, height: 1417 });
+				
+                //FB.Canvas.setSize({ width: 810, height: 1417 });
                 //FB.Canvas.setAutoGrow();                
 
             };
@@ -99,9 +111,13 @@
                 js.src = "//connect.facebook.net/en_US/all.js";
                 d.getElementsByTagName('head')[0].appendChild(js);
             } (document));        
-
+				function resize() {
+			    FB.Canvas.setAutoGrow();
+			  }
         </script>
-
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/lib/jquery-1.8.1.min.js"><\/script>')</script>
+		
 
     </body>
 
