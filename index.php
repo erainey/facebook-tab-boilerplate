@@ -49,33 +49,8 @@
             <!-- YOUR CONTENT GOES HERE -->
             <div id="content">
 
-                <?php 
+              
 
-                /* ---------------------------------------------*/
-                /* ------- CONTENT FOR GERMAN VISITORS -------- */
-                /* ---------------------------------------------*/
-
-                if ($language_DE) { ?>
-
-                    <!-- ********** THIS CAN BE VIEWED BY FANS ONLY ********** -->
-                    <?php if ($userIsFan) { ?>
-
-                        <p>Benutzer ist ein Fan</p>
-
-                    <!-- ********** THIS CAN BE VIEWED BY NON-FANS ONLY ********** -->
-                    <?php } else { ?>
-
-                        <p>Benutzer ist kein Fan</p>
-
-                    <?php }
-
-                } 
-
-                /* ---------------------------------------------*/
-                /* ------- CONTENT FOR ENGLISH VISITORS ------- */
-                /* ---------------------------------------------*/
-
-                else { ?>
 
                     <!-- ********** THIS CAN BE VIEWED BY FANS ONLY ********** -->
                     <?php if ($userIsFan) { ?>
@@ -88,8 +63,6 @@
                         <p>User is not a fan</p>
 
                     <?php } ?>
-
-                <?php } ?>
 
             </div>
 
